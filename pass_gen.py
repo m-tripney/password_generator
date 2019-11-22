@@ -35,7 +35,7 @@ def variables_input():
         f"Thanks! Password is {length} characters long ({lower_chars} lowercase, "
         f"{upper_chars} uppercase, {numbers} numbers, {symbols} symbols)."
     )
-    return (length, lower_chars, upper_chars, numbers, symbols)
+    return length, lower_chars, upper_chars, numbers, symbols
 
 
 def generate_password(length, lower_chars, upper_chars, numbers, symbols):
