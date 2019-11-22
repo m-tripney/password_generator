@@ -1,5 +1,6 @@
 import string
 import secrets
+import pyperclip
 
 
 def length_check(components):
@@ -31,10 +32,6 @@ def variables_input():
             print("Password is shorter than desired!")
             continue
         break
-    print(
-        f"Thanks! Password is {length} characters long ({lower_chars} lowercase, "
-        f"{upper_chars} uppercase, {numbers} numbers, {symbols} symbols)."
-    )
     return length, lower_chars, upper_chars, numbers, symbols
 
 
@@ -50,7 +47,9 @@ def generate_password(length, lower_chars, upper_chars, numbers, symbols):
             >= symbols
         ):
             break
-    print(f"Password is: {password}")
+    pyperclip.copy(password)
+    print(f"\nPassword is: {password}")
+    print("\n(This has been copied to your clipboard.)")
 
 
 length = int(input("Password length?  "))
