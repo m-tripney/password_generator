@@ -12,7 +12,6 @@ def length_check(components):
 def variables_input():
     while True:
         components = 0
-
         lower_chars = int(input("How many lowercase characters?  "))
         components += lower_chars
         length_check(components)
@@ -48,8 +47,13 @@ def generate_password(length, lower_chars, upper_chars, numbers, symbols):
         ):
             break
     pyperclip.copy(password)
-    print(f"\nPassword is: {password}")
-    print("\n(This has been copied to your clipboard.)")
+    print("Password is: ", end="")
+    for character in password:
+        print("*", end="")
+    print("\n(Password has been copied to your clipboard.)")
+    reveal = input("Reveal password (Y/n)?  ")
+    if reveal == "Y":
+        print(f"\nPassword is: {password}")
 
 
 length = int(input("Password length?  "))
